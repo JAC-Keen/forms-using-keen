@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+
+  <body>
+    <h1 id="title">Favorite Things</h1>
+    <div id="form-outer">
+      <p id="description">
+        Show us what your favorite things are:
+      </p>
+      <form id="survey-form" method="GET" onsubmit=getInputElements()
+        action="https://api.keen.io/3.0/projects/5dc9a4d9c9e77c0001c4bb2a/events/EVENT_COLLECTION_NAME?api_key=C308D529FAD4280944A9ED86B04443FC416E0AD39EC3EAA8F204456F58D1931AC84D65A1E2D0B354BB4D3C154661CDB7F304585F70D0E33EE42E874B04ED174E8043C5876AA3071E577FF7857EA1DEBAC21AC32F60E826141662C3DC2FC6D5AE">
+        <div class="rowTab">
+          <div class="labels">
+            <label id="name-label" for="name">* Name: </label>
+          </div>
+          <div class="rightTab">
+            <input autofocus type="text" name="name" id="name" class="input-field" placeholder="Enter your name"
+              required>
+          </div>
+        </div>
+        <div class="rowTab">
+          <div class="labels">
+            <label id="email-label" for="email">* Email: </label>
+          </div>
+          <div class="rightTab">
+            <input type="email" name="email" id="email" class="input-field" required placeholder="Enter your Email">
+          </div>
+        </div>
+        <div class="rowTab">
+          <div class="labels">
+            <label id="number-label" for="age">* Age: </label>
+          </div>
+          <div class="rightTab">
+            <input type="number" name="age" id="number" min="1" max="125" class="input-field" required placeholder="Age">
+          </div>
+        </div>
+        <div class="rowTab">
+          <div class="labels">
+            <label for="currentPos">Which option best describes your favorite after-school activity?</label>
+          </div>
+          <div class="rightTab">
+            <select id="dropdown" name="currentPos" class="dropdown">
+              <option disabled value>Select an option</option>
+              <option value="reading">Reading</option>
+              <option value="sports">Sports</option>
+              <option value="learner">Full Time Learner</option>
+              <option value="preferNo">Arts and Crafts</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="rowTab">
+          <div class="labels">
+            <label>*What is your favorite type of food?</label>
+          </div>
+          <div class="rightTab">
+            <ul style="list-style: none;">
+              <li class="radio">
+                <label>Italian<input name="radio buttons" value="1" type="radio" class="userRatings"></label></li>
+              <li class="radio"><label>Chinese<input name="radio-buttons" value="2" type="radio"
+                    class="userRatings"></label></li>
+              <li class="radio">
+                <label>American<input name="radio-buttons" value="3" type="radio" class="userRatings"></label></li>
+              <li class="radio">
+                <label>Mexican<input name="radio-buttons" value="4" type="radio" class="userRatings"></label></li>
+              <li class="radio">
+                <label>Indian<input name="radio-buttons" value="5" type="radio" class="userRatings"></label></li>
+            </ul>
+          </div>
+        </div>
+        <div class="rowTab">
+          <div class="labels">
+            <label for="most-like">What is your favorite color? </label>
+          </div>
+          <div class="rightTab">
+            <select id="most-like" name="mostLike" class="dropdown">
+              <option disabled selected value>Select an option</option>
+              <option value="red">Red</option>
+              <option value="blue">Blue</option>
+              <option value="purple">Purple</option>
+              <option value="pink">Pink</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label for="preferences">What do you do in your free-time?<br>(Check all that apply):</label>
+      </div>
+      <div class="rightTab">
+        <ul li="preferences" style="list-style:none;">
+          <li class="checkbox"><label><input name="prefer" value="1" type="checkbox" class="userRatings">Watch
+              TV</label></li>
+          <li class="checkbox"><label><input name="prefer" value="2" type="checkbox" class="userRatings">Sleep</label>
+          </li>
+
+          <li class="checkbox"><label>
+              <input name="prefer" value="3" type="checkbox" class="userRatings">Read a good book</label></li>
+          <li class="checkbox"><label>
+              <input name="prefer" value="4" type="checkbox" class="userRatings">Go outside to play</label></li>
+
+          <li class="checkbox"><label>
+              <input name="prefer" value="5" type="checkbox" class="userRatings">Do a "serious" sport</label></li>
+
+          <li class="checkbox"><label>
+              <input name="prefer" value="6" type="checkbox" class="userRatings">Relax on your couch</label></li>
+          <li class="checkbox"><label>
+              <input name="prefer" value="7" type="checkbox" class="userRatings">Play with your pet</label></li>
+
+          <li class="checkbox"><label>
+              <input name="prefer" value="8" type="checkbox" class="userRatings">Go shopping</label></li>
+
+          <li class="checkbox"><label>
+              <input name="prefer" value="9" type="checkbox" class="userRatings">Hang out with friends</label></li>
+
+          <li class="checkbox"><label>
+              <input name="prefer" value="10" type="checkbox" class="userRatings">Do some crafty activities</label></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label for="comments">Any Comments or Suggestions?</label>
+      </div>
+      <div class="rightTab">
+        <textarea id="comments" class="input-field" style="height:50px;resize:vertical;" name="comment"
+          placeholder="Enter your comment here..."></textarea>
+      </div>
+    </div>
+    <button id="submit" type="submit">Submit</button>
+    </form>
+    </div>
+    <script>
+    (function(name,path,ctx){ctx[name]=ctx[name]||{ready:function(fn){var h=document.getElementsByTagName('head')[0],s=document.createElement('script'),w=window,loaded;s.onload=s.onerror=s.onreadystatechange=function(){if((s.readyState&&!(/^c|loade/.test(s.readyState)))||loaded){return}s.onload=s.onreadystatechange=null;loaded=1;ctx[name].ready(fn)};s.async=1;s.src=path;h.parentNode.insertBefore(s,h)}}})
+    ('KeenTracking', 'https://cdn.jsdelivr.net/npm/keen-tracking@4/dist/keen-tracking.min.js', this);
+      KeenTracking.ready(function(){
+        const client = new KeenTracking({
+          projectId: '5dc9a4d9c9e77c0001c4bb2a',
+          writeKey: 'C308D529FAD4280944A9ED86B04443FC416E0AD39EC3EAA8F204456F58D1931AC84D65A1E2D0B354BB4D3C154661CDB7F304585F70D0E33EE42E874B04ED174E8043C5876AA3071E577FF7857EA1DEBAC21AC32F60E826141662C3DC2FC6D5AE'
+        });
+
+        var input = document.getElementById('number');
+          console.log(input.value)
+
+        // var x = document.getElementById('number').value;
+        //   console.log(x)
+
+        // Record events automatically
+        client.initAutoTracking();
+
+        const form = document.getElementById('survey-form');
+        form.addEventListener('submit', () => {
+          client.recordEvent("age_value", {
+            "age": parseInt(input.value)
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
